@@ -4,17 +4,23 @@ import tempfile
 import gc
 import base64
 import time
-
+from langchain_google_genai import ChatGoogleGenerativeAI
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai_tools import SerperDevTool
 from src.agentic_rag.tools.custom_tool import DocumentSearchTool
+import os
+from dotenv import load_dotenv
+
+api_token = os.getenv("GOOGLE_API_KEY")
+
 
 @st.cache_resource
 def load_llm():
-    llm = LLM(
-        model="ollama/deepseek-r1:7b",
-        base_url="http://localhost:11434"
-    )
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=api_token)
+    # llm = LLM(
+    #     model="ollama/deepseek-r1:7b",
+    #     base_url="http://localhost:11434"
+    # )
     return llm
 
 # ===========================
@@ -153,9 +159,9 @@ with st.sidebar:
 # ===========================
 #   Main Chat Interface
 # ===========================
-st.markdown("""
-    # Agentic RAG over complex real-world documents powered by <img src="data:image/png;base64,{}" width="220" style="vertical-align: -12px;">
-""".format(base64.b64encode(open("assets/groundx.png", "rb").read()).decode()), unsafe_allow_html=True)
+# st.markdown("""
+#     # Agentic RAG over complex real-world documents powered by <img src="data:image/png;base64,{}" width="220" style="vertical-align: -12px;">
+# """.format(base64.b64encode(open("assets/groundx.png", "rb").read()).decode()), unsafe_allow_html=True)
 
 # Render existing conversation
 for message in st.session_state.messages:
