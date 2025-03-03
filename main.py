@@ -10,17 +10,19 @@ from crewai_tools import SerperDevTool
 from src.agentic_rag.tools.custom_tool import DocumentSearchTool
 import os
 from dotenv import load_dotenv
+from litellm import completion
+
 
 api_token = os.getenv("GOOGLE_API_KEY")
 
 
 @st.cache_resource
 def load_llm():
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=api_token)
-    # llm = LLM(
-    #     model="ollama/deepseek-r1:7b",
-    #     base_url="http://localhost:11434"
-    # )
+    # llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=api_token)
+    llm = LLM(
+        api_key=api_token,
+        model="gemini/gemini-2.0-flash",
+    )
     return llm
 
 # ===========================
