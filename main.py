@@ -188,7 +188,7 @@ with st.sidebar:
             if not st.session_state.messages:
                 st.session_state.messages.append({
                     "role": "assistant", 
-                    "content": f"😺 Meow! I've processed your document '{uploaded_file.name}'. What would you like to know about it?"
+                    "content": f"I've processed your document '{uploaded_file.name}'. What would you like to know about it?"
                 })
         
         # Display the PDF preview
@@ -200,8 +200,8 @@ with st.sidebar:
         st.rerun()
 
 # Main chat interface
-st.title("Chat with your Document 😺")
-st.markdown("Upload a PDF and chat with it like you're talking to a helpful cat assistant!")
+st.title("Chat with your Document")
+st.markdown("Upload a PDF and chat with it like you're talking to a helpful assistant!")
 
 # Display chat messages
 for message in st.session_state.messages:
@@ -222,7 +222,7 @@ if prompt := st.chat_input("Ask something about your document..."):
         message_placeholder = st.empty()
         
         if st.session_state.document_content:
-            with st.spinner("Thinking... 😺"):
+            with st.spinner("Thinking..."):
                 # First try to find relevant text content
                 relevant_text = ""
                 for item in st.session_state.document_content:
@@ -254,19 +254,14 @@ if prompt := st.chat_input("Ask something about your document..."):
                         
                         result = get_gemini_response(prompt, context=all_text)
         else:
-            result = "😺 Meow! Please upload a document first so I can help you with your questions."
+            result = "Please upload a document first so I can help you with your questions."
         
         # Add cat-like personality to the response
-        cat_phrases = [
-            "😺 Meow! ",
-            "😸 Purr... ",
-            "🐱 *stretches* ",
-            "😽 *tilts head* "
-        ]
+    
         
         import random
         if not result.startswith("Error"):
-            result = random.choice(cat_phrases) + result
+            result = result
         
         # Display the response with typing effect
         full_response = ""
