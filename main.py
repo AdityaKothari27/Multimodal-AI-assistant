@@ -256,7 +256,7 @@ if prompt := st.chat_input("Ask something about your document..."):
         else:
             result = "Please upload a document first so I can help you with your questions."
         
-        # Add cat-like personality to the response
+
     
         
         import random
