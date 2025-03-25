@@ -235,10 +235,11 @@ def get_image_download_link(img_data, filename, text):
 with st.sidebar:
     st.title("Gemini Multi-Tool")
     
+    
     # Navigation
     app_mode = st.radio(
         "Choose Mode:",
-        ["Image Generation", "Image Editing", "Document Chat"]
+        ["Image Generation", "Image Editing", "Chat"]
     )
     
     # Reset button
@@ -247,6 +248,9 @@ with st.sidebar:
         st.session_state.document_content = None
         st.session_state.document_name = None
         st.rerun()
+
+    st.write("Made by [Aditya Kothari](https://github.com/adityakothari27)")
+    
 
 # Main app logic based on selected mode
 if app_mode == "Image Generation":
