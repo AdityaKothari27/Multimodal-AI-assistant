@@ -1,7 +1,6 @@
 langchain_google_genai
 fitz
 pymupdf
-base64
 python-dotenv
 streamlit
 pillow
