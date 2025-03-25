@@ -1,5 +1,5 @@
 import streamlit as st
-from google import genai
+import google.generativeai as genai
 from google.genai import types
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from PIL import Image
@@ -277,7 +277,7 @@ if app_mode == "Image Generation":
             if generated_image_data:
                 st.subheader("Generated Image")
                 generated_image = Image.open(io.BytesIO(generated_image_data))
-                st.image(generated_image, use_column_width=True)
+                st.image(generated_image, use_container_width=True)
                 
                 # Download button
                 st.markdown(
@@ -320,7 +320,7 @@ elif app_mode == "Image Editing":
             
             with col1:
                 st.subheader("Original Image")
-                st.image(original_image, use_column_width=True)
+                st.image(original_image, use_container_width=True)
             
             # Edit image
             text_response, edited_image_data = edit_image(client, prompt, original_image)
@@ -330,7 +330,7 @@ elif app_mode == "Image Editing":
                 if edited_image_data:
                     st.subheader("Edited Image")
                     edited_image = Image.open(io.BytesIO(edited_image_data))
-                    st.image(edited_image, use_column_width=True)
+                    st.image(edited_image, use_container_width=True)
                     
                     # Download button
                     st.markdown(
