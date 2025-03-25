@@ -1,7 +1,8 @@
-langchain_google_genai==2.0.11
-litellm==1.61.20
-pydantic==2.10.6
-python-dotenv==1.0.1
-streamlit==1.41.1
+langchain_google_genai
+fitz
+pymupdf
+base64
+python-dotenv
+streamlit
 pillow
 google-generativeai
