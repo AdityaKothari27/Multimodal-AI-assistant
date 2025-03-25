@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai
 from google.genai import types
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from PIL import Image
