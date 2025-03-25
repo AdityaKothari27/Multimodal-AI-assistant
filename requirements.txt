@@ -6,3 +6,4 @@ python-dotenv
 streamlit
 pillow
 google-generativeai
+google
