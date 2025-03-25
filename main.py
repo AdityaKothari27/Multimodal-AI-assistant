@@ -261,7 +261,6 @@ if app_mode == "Image Generation":
     prompt = st.text_area(
         "Enter your prompt for image generation (Include 'Generate an image' or something similar in the prompt)", 
         placeholder="e.g., 'A realistic landscape with mountains and a lake at sunset'", 
-        height=10
     )
     
     # Generate image button
@@ -302,8 +301,7 @@ elif app_mode == "Image Editing":
     # Prompt input
     prompt = st.text_area(
         "Enter your prompt for image editing", 
-        placeholder="e.g., 'Add a llama next to me in this picture'", 
-        height=100
+        placeholder="e.g., 'Add a llama next to me in this picture'"
     )
     
     # Process the image when both image and prompt are provided
