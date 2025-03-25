@@ -1,8 +1,7 @@
-crewai==0.102.0
-crewai_tools==0.36.0
-groundx==2.2.2
 langchain_google_genai==2.0.11
 litellm==1.61.20
 pydantic==2.10.6
 python-dotenv==1.0.1
 streamlit==1.41.1
+pillow
+
