@@ -9,6 +9,7 @@ import os
 import tempfile
 import time
 import fitz  # PyMuPDF
+import pymupdf
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -49,7 +50,7 @@ def extract_from_pdf(file_path):
     document_content = []
     
     # Open the PDF
-    doc = fitz.open(file_path)
+    doc = pymupdf.open(file_path)
     
     # Process each page
     for page_num, page in enumerate(doc):
