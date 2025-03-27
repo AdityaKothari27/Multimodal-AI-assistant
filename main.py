@@ -8,7 +8,7 @@ import base64
 import os
 import tempfile
 import time
-import fitz  # PyMuPDF
+# import fitz  # PyMuPDF
 import pymupdf
 from dotenv import load_dotenv
 
