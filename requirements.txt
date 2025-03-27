@@ -1,6 +1,6 @@
 langchain_google_genai
 fitz
-pymupdf
+PyMuPDF==1.21.1
 python-dotenv
 streamlit
 pillow
